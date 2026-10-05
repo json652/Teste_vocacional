@@ -34,7 +34,7 @@ export async function createUsuario(cpf, Email, Telcel) {
   console.log("Tainha");
   const [result] = await pool.query(
     `
-    INSERT INTO Usuario (cpf, Email, Telcel)
+    INSERT INTO DB_Lead (cpf, Email, Telcel)
     VALUES (?, ?, ?)
     `,
     [cpf, Email, Telcel],
@@ -43,10 +43,10 @@ export async function createUsuario(cpf, Email, Telcel) {
   return getUsuarios(ID);
 }
 
-//Mostra o resultado do INSERT query
-/*const result = await createUsuario("klsdjnfvojsdio", "oaidjfi0ojsdifv");
-console.log(result);*/
+// //Mostra o resultado do INSERT query
+// /*const result = await createUsuario("klsdjnfvojsdio", "oaidjfi0ojsdifv");
+// console.log(result);*/
 
-//Mostra o resultado do SELECT query
-const result = await getUsuarios(1);
-console.log(result);
+// //Mostra o resultado do SELECT query
+// const result = await getUsuarios(1);
+// console.log(result);

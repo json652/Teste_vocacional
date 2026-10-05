@@ -65,18 +65,21 @@ app.post("/info", (req, res) => {
 });
 
 //criação da rota verificação das variáveis e Conecta as variaveis ao db e manda elas pra tabela
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   try {
     const { cpf, nome, telcel } = req.body;
     console.log("Tangerina");
     if (cpf && nome && telcel) {
-      const user2 = createUsuario(cpf, nome, telcel);
+      const user2 = await createUsuario(cpf, nome, telcel);
       res.status(201).send(user2);
     } else {
       res.status(401).json({ success: false, message: "Invalid credentials!" });
     }
   } catch (err) {
-    next(err); // forwards to your error middleware
+    console.error(err);
+    res
+      .status(500)
+      .json({ success: false, message: "Erro ao salvar no banco" });
   }
 });
 
