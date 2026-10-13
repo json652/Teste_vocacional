@@ -20,6 +20,7 @@ export async function getUsuario() {
 }
 
 export async function getUsuarios(ID) {
+  console.log("Taquaritinga");
   const [rows] = await pool.query(
     `
     SELECT * FROM DB_Lead 

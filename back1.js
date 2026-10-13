@@ -67,6 +67,7 @@ app.post("/info", (req, res) => {
 //criação da rota verificação das variáveis e Conecta as variaveis ao db e manda elas pra tabela
 app.post("/login", async (req, res) => {
   try {
+    console.log();
     const { cpf, nome, telcel } = req.body;
     console.log("Tangerina");
     if (cpf && nome && telcel) {
