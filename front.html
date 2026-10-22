@@ -23,56 +23,31 @@
     </header>
 
     <h3 class="h3 d-flex justify-content-center align-items-center">
-      Para cada afirmação, atribua uma nota de 1 a 4, conforme o quanto ela
+      Para cada afirmação, atribua uma nota de 1 a 5, conforme o quanto ela
       combina com você:
     </h3>
 
-    <div class="container d-flex justify-content-center align-items-center">
-      <div>
-        <div class="d-flex gap-4">
-          <p>nota</p>
-          <p>significado</p>
+    <main class="container py-5">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <!--Barra de progresso-->
+          <div
+            class="progress mb-3"
+            id="progress-bar"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+          <!--Contador de perguntas-->
+          <p id="counter" class="text-muted small mb-2"></p>
+          <!--Pergunta-->
+          <h2 id="question-text" class="h4 mb-4"></h2>
+          <!--Resposta do candidato/aluno-->
+          <div id="answers" class="d-grid gap-2 mb-3"></div>
+          <!--Botão para voltar-->
+          <button id="back" class="btn btn-link p-0">Back</button>
         </div>
-        <p>1 - Não tem nada a ver comigo</p>
-        <p>2 - Tem um pouco a ver</p>
-        <p>3 - Tem muito a ver</p>
-        <p>4 - Tem tudo a ver</p>
-        <p><strong>Seja sincero(a) — não vale dar 4 para tudo! 😉</strong></p>
       </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div
-      class="container d-flex justify-content-center align-items-center w-100 w-md-75 w-lg-50 w-xl-25"
-    >
-      <div>
-        <h5 class="d-flex justify-content-center align-items-center">
-          BLOCO A – MÃO NA MASSA (Prático-Concreto)
-        </h5>
-
-        <form action="questionario()" class="d-flex flex-column gap-2 p-3">
-          <button class="btn btn-primary w-100">
-            1. Gosto de entender como as coisas funcionam por dentro
-          </button>
-
-          <button class="btn btn-primary w-100">
-            2. Prefiro aprender fazendo, colocando a mão na massa
-          </button>
-
-          <button class="btn btn-primary w-100">
-            3. Tenho facilidade com atividades físicas ou manuais
-          </button>
-
-          <button class="btn btn-primary w-100">
-            4. Admiro quem conserta, constrói ou cultiva coisas
-          </button>
-
-          <button class="btn btn-primary w-100">
-            5. Me sinto bem ao ar livre ou em ambientes dinâmicos
-          </button>
-        </form>
-      </div>
-    </div>
+    </main>
   </body>
 </html>
