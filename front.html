@@ -26,24 +26,72 @@
       Para cada afirmação, atribua uma nota de 1 a 5, conforme o quanto ela
       combina com você:
     </h3>
-
+    <!--Container principal-->
     <main class="container py-5">
+      <!--Card onde o questionário vai aparecer-->
       <div class="card shadow-sm">
+        <!--Conteúdo do card-->
         <div class="card-body p-4">
-          <!--Barra de progresso-->
-          <div
-            class="progress mb-3"
-            id="progress-bar"
-            role="progressbar"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-          <!--Contador de perguntas-->
-          <p id="counter" class="text-muted small mb-2"></p>
-          <!--Pergunta-->
-          <h2 id="question-text" class="h4 mb-4"></h2>
-          <!--Resposta do candidato/aluno-->
-          <div id="answers" class="d-grid gap-2 mb-3"></div>
+          <!--FORMULÁRIO-->
+          <form id="formularioTeste">
+            <!--Barra de progresso-->
+            <div
+              class="progress mb-3"
+              id="progress-bar"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+            <!--Contador de perguntas-->
+            <p id="counter" class="text-muted small mb-2"></p>
+            <!--Pergunta-->
+            <h2 id="question-text" class="h4 mb-4"></h2>
+            <!--Resposta do candidato/aluno-->
+            <div id="answers" class="d-grid gap-2 mb-3">
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  onclick="FormSubmit()"
+                  id="1"
+                >
+                  1
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  onclick="FormSubmit()"
+                  id="2"
+                >
+                  2
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  onclick="FormSubmit()"
+                  id="3"
+                >
+                  3
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  onclick="FormSubmit()"
+                  id="4"
+                >
+                  4
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  onclick="FormSubmit()"
+                  id="5"
+                >
+                  5
+                </button>
+              </div>
+            </div>
+          </form>
           <!--Botão para voltar-->
           <button id="back" class="btn btn-link p-0">Back</button>
         </div>
