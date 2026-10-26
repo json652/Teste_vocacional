@@ -21,7 +21,7 @@ function FormSubmit() {
       const response = await fetch(`http://localhost:3000/login`, {
         headers: { "Content-type": "application/json" },
         method: "POST",
-        body: JSON.stringify({ cpf, nome, telcel }),
+        body: JSON.stringify({ btn1, btn2, btn3, btn4, btn5 }),
       });
       //Dá um retorno da condição da rota
       const data = await response.json();
