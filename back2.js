@@ -163,8 +163,11 @@ app.post("/login", async (req, res) => {
         ];
       }
       return ListaPerguntas;
-      console.log("ListaPerguntas");
     }
+
+    return `
+      <p>${embaralharPerguntas(ListaPerguntas)}</p>
+    `;
 
     console.log("Tangerina");
   } catch (err) {
