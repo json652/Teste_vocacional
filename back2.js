@@ -21,7 +21,7 @@ let listaResposta = [
 
 //Retorna a lista
 app.post("/cpf", async (req, res) => {
-  return res.status(200).json(listaUsuarios);
+  return res.status(200).json(ListaPerguntas);
 });
 
 //colocando os dados dentro da lista
@@ -153,21 +153,22 @@ app.post("/login", async (req, res) => {
 
     //função que embaralha as perguntas pro usuário
     function embaralharPerguntas(ListaPerguntas) {
-      let arr = ListaPerguntas;
+      //guarda o tamanho do array
+      let arr = ListaPerguntas.length;
       let i;
-      for (i = 0; i <= ListaPerguntas - 1; i--) {
+      //Retorna antes de embaralhar
+      console.log(ListaPerguntas.map((p) => p.id));
+      //Algoritmo fisher-yates para embaralhar o array
+      for (i = arr; i <= arr - 1; i--) {
         const j = i + Math.floor(Math.random() * (arr.length - i));
         [ListaPerguntas[i], ListaPerguntas[j]] = [
           ListaPerguntas[j],
           ListaPerguntas[i],
         ];
+        //Retorna depois de embaralhar
+        return console.log(ListaPerguntas.map((p) => p.id));
       }
-      return ListaPerguntas;
     }
-
-    return `
-      <p>${embaralharPerguntas(ListaPerguntas)}</p>
-    `;
 
     console.log("Tangerina");
   } catch (err) {
