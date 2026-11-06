@@ -54,120 +54,119 @@ app.post("/info", (req, res) => {
 
 //criação de rota e verificação das variáveis
 app.post("/login", async (req, res) => {
+  console.log();
+  const { btn1, btn2, btn3, btn4, btn5 } = req.body;
+  //Lista com todas as perguntas do teste
+  let ListaPerguntas = [
+    {
+      id: 1,
+      texto: "Eu gosto de consertar ou montar coisas.",
+      area: "pratica",
+    },
+    {
+      id: 2,
+      texto: "Prefiro trabalhar ao ar livre do que em escritório.",
+      area: "pratica",
+    },
+    {
+      id: 3,
+      texto: "Gosto de usar ferramentas e equipamentos.",
+      area: "pratica",
+    },
+    {
+      id: 4,
+      texto: "Eu gosto de descobrir como as coisas funcionam.",
+      area: "Investigativa",
+    },
+    {
+      id: 5,
+      texto: "Gosto de resolver problemas de lógica ou matemática.",
+      area: "Investigativa",
+    },
+    {
+      id: 6,
+      texto: "Tenho curiosidade em pesquisar um assunto a fundo.",
+      area: "Investigativa",
+    },
+    {
+      id: 7,
+      texto: "Eu gosto de desenhar, escrever, tocar ou criar algo novo.",
+      area: "Artística",
+    },
+    {
+      id: 8,
+      texto: "Prefiro tarefas em que posso usar minha criatividade.",
+      area: "Artística",
+    },
+    {
+      id: 9,
+      texto: "Me incomodo com regras muito rígidas no trabalho.",
+      area: "Artística",
+    },
+    {
+      id: 10,
+      texto: "Eu me sinto bem quando ajudo alguém.",
+      area: "Social",
+    },
+    {
+      id: 11,
+      texto: "Gosto de ensinar ou explicar coisas para outras pessoas.",
+      area: "Social",
+    },
+    {
+      id: 12,
+      texto: "Tenho facilidade em ouvir e entender o que os outros sentem.",
+      area: "Social",
+    },
+    {
+      id: 13,
+      texto: "Eu gosto de liderar um grupo.",
+      area: "Empreendedora",
+    },
+    {
+      id: 14,
+      texto: "Consigo convencer pessoas com facilidade.",
+      area: "Empreendedora",
+    },
+    {
+      id: 15,
+      texto: "Gosto de assumir riscos para alcançar um objetivo.",
+      area: "Empreendedora",
+    },
+    {
+      id: 16,
+      texto: "Eu gosto de manter tudo organizado e planejado.",
+      area: "Convencional",
+    },
+    {
+      id: 17,
+      texto: "Prefiro seguir um passo a passo bem definido.",
+      area: "Convencional",
+    },
+    {
+      id: 18,
+      texto: "Me sinto bem trabalhando com números, planilhas ou documentos.",
+      area: "Convencional",
+    },
+  ];
   try {
-    console.log();
-    const { btn1, btn2, btn3, btn4, btn5 } = req.body;
-    //Lista com todas as perguntas do teste
-    let ListaPerguntas = [
-      {
-        id: 1,
-        texto: "Eu gosto de consertar ou montar coisas.",
-        area: "pratica",
-      },
-      {
-        id: 2,
-        texto: "Prefiro trabalhar ao ar livre do que em escritório.",
-        area: "pratica",
-      },
-      {
-        id: 3,
-        texto: "Gosto de usar ferramentas e equipamentos.",
-        area: "pratica",
-      },
-      {
-        id: 4,
-        texto: "Eu gosto de descobrir como as coisas funcionam.",
-        area: "Investigativa",
-      },
-      {
-        id: 5,
-        texto: "Gosto de resolver problemas de lógica ou matemática.",
-        area: "Investigativa",
-      },
-      {
-        id: 6,
-        texto: "Tenho curiosidade em pesquisar um assunto a fundo.",
-        area: "Investigativa",
-      },
-      {
-        id: 7,
-        texto: "Eu gosto de desenhar, escrever, tocar ou criar algo novo.",
-        area: "Artística",
-      },
-      {
-        id: 8,
-        texto: "Prefiro tarefas em que posso usar minha criatividade.",
-        area: "Artística",
-      },
-      {
-        id: 9,
-        texto: "Me incomodo com regras muito rígidas no trabalho.",
-        area: "Artística",
-      },
-      {
-        id: 10,
-        texto: "Eu me sinto bem quando ajudo alguém.",
-        area: "Social",
-      },
-      {
-        id: 11,
-        texto: "Gosto de ensinar ou explicar coisas para outras pessoas.",
-        area: "Social",
-      },
-      {
-        id: 12,
-        texto: "Tenho facilidade em ouvir e entender o que os outros sentem.",
-        area: "Social",
-      },
-      {
-        id: 13,
-        texto: "Eu gosto de liderar um grupo.",
-        area: "Empreendedora",
-      },
-      {
-        id: 14,
-        texto: "Consigo convencer pessoas com facilidade.",
-        area: "Empreendedora",
-      },
-      {
-        id: 15,
-        texto: "Gosto de assumir riscos para alcançar um objetivo.",
-        area: "Empreendedora",
-      },
-      {
-        id: 16,
-        texto: "Eu gosto de manter tudo organizado e planejado.",
-        area: "Convencional",
-      },
-      {
-        id: 17,
-        texto: "Prefiro seguir um passo a passo bem definido.",
-        area: "Convencional",
-      },
-      {
-        id: 18,
-        texto: "Me sinto bem trabalhando com números, planilhas ou documentos.",
-        area: "Convencional",
-      },
-    ];
-
     //função que embaralha as perguntas pro usuário
     function embaralharPerguntas(ListaPerguntas) {
       //guarda o tamanho do array
       let arr = ListaPerguntas.length;
       let i;
       //Retorna antes de embaralhar
-      console.log(ListaPerguntas.map((p) => p.id));
+      console.log(ListaPerguntas.map((p) => `<p>${p.id}</p>`));
       //Algoritmo fisher-yates para embaralhar o array
       for (i = arr; i <= arr - 1; i--) {
-        const j = i + Math.floor(Math.random() * (arr.length - i));
+        const j = i + Math.floor(Math.random() * (arr - i));
         [ListaPerguntas[i], ListaPerguntas[j]] = [
           ListaPerguntas[j],
           ListaPerguntas[i],
         ];
-        //Retorna depois de embaralhar
-        return console.log(ListaPerguntas.map((p) => p.id));
       }
+      //Retorna depois de embaralhar
+      return console.log(ListaPerguntas.map((p) => `<p>${p.id}</p>`));
     }
 
     console.log("Tangerina");
