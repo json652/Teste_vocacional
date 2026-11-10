@@ -158,7 +158,7 @@ app.post("/login", async (req, res) => {
       //Retorna antes de embaralhar
       console.log(ListaPerguntas.map((p) => `<p>${p.id}</p>`));
       //Algoritmo fisher-yates para embaralhar o array
-      for (i = arr; i <= arr - 1; i--) {
+      for (i = 0; i <= arr - 1; i++) {
         const j = i + Math.floor(Math.random() * (arr - i));
         [ListaPerguntas[i], ListaPerguntas[j]] = [
           ListaPerguntas[j],
@@ -169,6 +169,8 @@ app.post("/login", async (req, res) => {
       return console.log(ListaPerguntas.map((p) => `<p>${p.id}</p>`));
     }
 
+    console.log(ListaPerguntas.map((p) => p.id));
+    return ListaPerguntas;
     console.log("Tangerina");
   } catch (err) {
     console.error(err);
