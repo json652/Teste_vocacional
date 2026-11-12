@@ -54,7 +54,7 @@ app.post("/info", (req, res) => {
 
 //criação de rota e verificação das variáveis
 app.post("/login", async (req, res) => {
-  console.log();
+  console.log("Frango a passarinho");
   const { btn1, btn2, btn3, btn4, btn5 } = req.body;
   //Lista com todas as perguntas do teste
   let ListaPerguntas = [
@@ -149,6 +149,7 @@ app.post("/login", async (req, res) => {
       area: "Convencional",
     },
   ];
+
   try {
     //função que embaralha as perguntas pro usuário
     function embaralharPerguntas(ListaPerguntas) {
@@ -167,10 +168,12 @@ app.post("/login", async (req, res) => {
       }
       //Retorna depois de embaralhar
       return console.log(ListaPerguntas.map((p) => `<p>${p.id}</p>`));
+      return ListaPerguntas;
     }
-
-    console.log(ListaPerguntas.map((p) => p.id));
-    return ListaPerguntas;
+    //Chamada de função que mostra o resultado
+    const Result = embaralharPerguntas(ListaPerguntas);
+    console.log(Result);
+    //Log de teste para ver se a rota está funcionando
     console.log("Tangerina");
   } catch (err) {
     console.error(err);
