@@ -157,9 +157,9 @@ app.post("/login", async (req, res) => {
       let arr = ListaPerguntas.length;
       let i;
       //Retorna antes de embaralhar
-      console.log(ListaPerguntas.map((p) => `<p>${p.id}</p>`));
+      console.log(ListaPerguntas.map((p) => p.id));
       //Algoritmo fisher-yates para embaralhar o array
-      for (i = 0; i <= arr - 1; i++) {
+      for (i = 0; i < arr - 1; i++) {
         const j = i + Math.floor(Math.random() * (arr - i));
         [ListaPerguntas[i], ListaPerguntas[j]] = [
           ListaPerguntas[j],
@@ -167,17 +167,19 @@ app.post("/login", async (req, res) => {
         ];
       }
       //Retorna depois de embaralhar
-      return console.log(ListaPerguntas.map((p) => `<p>${p.id}</p>`));
-      return ListaPerguntas;
+      return console.log(ListaPerguntas.map((p) => p.id));
     }
     //Chamada de função que mostra o resultado
     const Result = embaralharPerguntas(ListaPerguntas);
     console.log(Result);
     //Log de teste para ver se a rota está funcionando
     console.log("Tangerina");
+    //
   } catch (err) {
+    //
     console.error(err);
     res.status(500).json({ success: false, message: "Erro" });
+    //
   }
 });
 
