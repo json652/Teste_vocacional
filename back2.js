@@ -167,7 +167,7 @@ app.post("/login", async (req, res) => {
         ];
       }
       //Retorna depois de embaralhar
-      return console.log(ListaPerguntas.map((p) => p.id));
+      return ListaPerguntas;
     }
     //Chamada de função que mostra o resultado
     const Result = embaralharPerguntas(ListaPerguntas);
@@ -175,6 +175,7 @@ app.post("/login", async (req, res) => {
     //Log de teste para ver se a rota está funcionando
     console.log("Tangerina");
     //
+    res.sendStatus(200);
   } catch (err) {
     //
     console.error(err);
