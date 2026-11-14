@@ -53,7 +53,7 @@ app.post("/info", (req, res) => {
 });
 
 //criação de rota e verificação das variáveis
-app.post("/login", async (req, res) => {
+app.post("/perguntas", async (req, res) => {
   console.log("Frango a passarinho");
   const { btn1, btn2, btn3, btn4, btn5 } = req.body;
   //Lista com todas as perguntas do teste
