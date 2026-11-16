@@ -160,18 +160,23 @@ app.post("/perguntas", async (req, res) => {
       console.log(ListaPerguntas.map((p) => p.id));
       //Algoritmo fisher-yates para embaralhar o array
       for (i = 0; i < arr - 1; i++) {
+        //pega uma posição aleatória para o indice j embaralhar depois do índice i
         const j = i + Math.floor(Math.random() * (arr - i));
+        //Faz o embaralhamento
         [ListaPerguntas[i], ListaPerguntas[j]] = [
           ListaPerguntas[j],
           ListaPerguntas[i],
         ];
       }
-      //Retorna depois de embaralhar
-      return ListaPerguntas;
     }
-    //Chamada de função que mostra o resultado
+    //
+    //Chamada de função que mostra o resultado no formato json
     const Result = embaralharPerguntas(ListaPerguntas);
-    console.log(Result);
+    console.log(Result.map((p) => p.id));
+    res.json(Result);
+
+    let mostrarPerguntas = () => {};
+
     //Log de teste para ver se a rota está funcionando
     console.log("Tangerina");
     //
