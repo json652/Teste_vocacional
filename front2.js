@@ -16,10 +16,10 @@ document
     console.log(btn4);
     console.log(btn5);
 
-    //Manda as variáveis para a rota de login do back-end para checagem
+    //Manda as variáveis para a rota de perguntas do back-end para checagem
     const response = await fetch(`http://localhost:3000/perguntas`, {
       headers: { "Content-type": "application/json" },
-      method: "POST",
+      method: "GET",
       body: JSON.stringify({ btn1, btn2, btn3, btn4, btn5 }),
     });
     //Dá um retorno da condição da rota
