@@ -56,103 +56,10 @@ app.post("/info", (req, res) => {
 app.post("/perguntas", async (req, res) => {
   console.log("Frango a passarinho");
   const { btn1, btn2, btn3, btn4, btn5 } = req.body;
-  //Lista com todas as perguntas do teste
-  let ListaPerguntas = [
-    {
-      id: 1,
-      texto: "Eu gosto de consertar ou montar coisas.",
-      area: "pratica",
-    },
-    {
-      id: 2,
-      texto: "Prefiro trabalhar ao ar livre do que em escritório.",
-      area: "pratica",
-    },
-    {
-      id: 3,
-      texto: "Gosto de usar ferramentas e equipamentos.",
-      area: "pratica",
-    },
-    {
-      id: 4,
-      texto: "Eu gosto de descobrir como as coisas funcionam.",
-      area: "Investigativa",
-    },
-    {
-      id: 5,
-      texto: "Gosto de resolver problemas de lógica ou matemática.",
-      area: "Investigativa",
-    },
-    {
-      id: 6,
-      texto: "Tenho curiosidade em pesquisar um assunto a fundo.",
-      area: "Investigativa",
-    },
-    {
-      id: 7,
-      texto: "Eu gosto de desenhar, escrever, tocar ou criar algo novo.",
-      area: "Artística",
-    },
-    {
-      id: 8,
-      texto: "Prefiro tarefas em que posso usar minha criatividade.",
-      area: "Artística",
-    },
-    {
-      id: 9,
-      texto: "Me incomodo com regras muito rígidas no trabalho.",
-      area: "Artística",
-    },
-    {
-      id: 10,
-      texto: "Eu me sinto bem quando ajudo alguém.",
-      area: "Social",
-    },
-    {
-      id: 11,
-      texto: "Gosto de ensinar ou explicar coisas para outras pessoas.",
-      area: "Social",
-    },
-    {
-      id: 12,
-      texto: "Tenho facilidade em ouvir e entender o que os outros sentem.",
-      area: "Social",
-    },
-    {
-      id: 13,
-      texto: "Eu gosto de liderar um grupo.",
-      area: "Empreendedora",
-    },
-    {
-      id: 14,
-      texto: "Consigo convencer pessoas com facilidade.",
-      area: "Empreendedora",
-    },
-    {
-      id: 15,
-      texto: "Gosto de assumir riscos para alcançar um objetivo.",
-      area: "Empreendedora",
-    },
-    {
-      id: 16,
-      texto: "Eu gosto de manter tudo organizado e planejado.",
-      area: "Convencional",
-    },
-    {
-      id: 17,
-      texto: "Prefiro seguir um passo a passo bem definido.",
-      area: "Convencional",
-    },
-    {
-      id: 18,
-      texto: "Me sinto bem trabalhando com números, planilhas ou documentos.",
-      area: "Convencional",
-    },
-  ];
 
   try {
     //função que embaralha as perguntas pro usuário
-    function embaralharPerguntas(ListaPerguntas) {
+    function embaralharPerguntas() {
       //guarda o tamanho do array
       let arr = ListaPerguntas.length;
       let i;
@@ -175,7 +82,7 @@ app.post("/perguntas", async (req, res) => {
     console.log(Result.map((p) => p.texto));
     res.json(Result);
 
-    let mostrarPerguntas = (ListaPerguntas) => {};
+    let mostrarPerguntas = () => {};
 
     //Log de teste para ver se a rota está funcionando
     console.log("Tangerina");
