@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import { getUsuario, getUsuarios } from "./PerguntasDB.js";
 
 const app = express();
 //Middleware responsavel por interpretar o corpo das requisi;'oes no formato json
